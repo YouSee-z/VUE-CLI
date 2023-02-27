@@ -20,6 +20,7 @@ function checkDebug() {
 
 (async () => {
   try {
+    // 校验npm 版本
     if (!checkNode(MIN_NODE_VERSION)) {
       throw new Error('Please upgrade your node version to v' + MIN_NODE_VERSION);
     }
