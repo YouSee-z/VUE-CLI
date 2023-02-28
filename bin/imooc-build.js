@@ -7,7 +7,7 @@ const pkg = require("../package.json");
 const checkNode = require("../lib/checkNode");
 const startServer = require("../lib/start/startServer");
 const build = require("../lib/build/build");
-const { default: separator } = require("inquirer/lib/objects/separator");
+// const { default: separator } = require("inquirer/lib/objects/separator");
 
 const MIN_NODE_VERSION = "8.9.0";
 
@@ -29,7 +29,7 @@ function checkDebug() {
       );
     }
 
-    program.version(pkg.version);
+    program.version(pkg.version, "-v, --version" );
 
     program
       .command("start")
@@ -48,11 +48,11 @@ function checkDebug() {
       .allowUnknownOption()
       .action(build);
 
-    // .action((args,option) => {
+    // .action((args,option,cmf) => {
     // 1: -s<char>
     // 2: -s <char>
     // 3 --separator <char>
-    // 4 --separator<char>
+    // 4 --separator=<char>
     // })
 
     program.option("-d, --debug", "开启调试模式");
